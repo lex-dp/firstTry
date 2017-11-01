@@ -18,6 +18,39 @@ html
 		<script src="/js/respond.min.js"></script>
 		<![endif]-->
 	body
+
+		div(class='navbar navbar-inverse navbar-fixed-top headroom animated')
+			div.container
+				div.navbar-header
+					button(type='button', class="navbar-toggle", data-toggle="collapse", data-target=".navbar-collapse")
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+
+				a(class='navbar-brand', href='/')
+					img(src='/images/logo.png', alt='Progressus HTML5 template')
+
+				div(class='navbar-collapse collapse')
+					ul(class='nav navbar-nav pull-right')
+						li
+							a(href='/') Home
+						li
+							a(href='/about') About
+
+						li.dropdown
+							a(href='#', class='dropdown-toggle', data-toggle="dropdown") More Pages
+								b.caret
+							ul.dropdown-menu
+								li
+									a(href='/sidebar-left') Left Sidebar
+								li
+									a(href='/sidebar-right') Right Sidebar
+
+						li
+							a(href='/contact') Contact
+						li
+							a(href='/signin', class='btn') SIGN IN / SIGN UP
+
 		block content
 
 	footer#footer.top-space
