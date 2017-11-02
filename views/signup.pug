@@ -1,0 +1,59 @@
+extends layout
+
+block content
+	header#head.secondary
+
+	div.container
+
+		include parts/breadcrumbs.pug
+
+		div.row
+			article(class='col-xs-12 maincontent')
+				header(class='page-header')
+					h1(class='page-title') Registration
+
+				div(class='col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2')
+					div(class='panel panel-default')
+						div(class='panel-body')
+							h3(class='thin text-center') Register a new account
+							p(class='text-center text-muted') Lorem ipsum dolor sit amet, <a href='/signin'>Register</a>  adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio.
+							hr
+
+							form
+								div.top-margin
+									label First Name
+									input(type='text', class='form-control')
+
+								div.top-margin
+									label Last Name
+									input(type='text', class='form-control')
+
+								div.top-margin
+									label Email Address
+										span.text-danger *
+									input(type='text', class='form-control')
+
+
+								div.row.top-margin
+									div.col-sm-6
+										label Password
+											span.text-danger *
+										input(type='password', class='form-control')
+
+									div.col-sm-6
+										label Confirm Password
+											span.text-danger *
+										input(type='password', class='form-control')
+
+								hr
+
+								div.row
+									div(class='col-lg-8')
+										b
+											a(href='#') Forgot password?
+
+									div(class='col-lg-4 text-right')
+										button(type='submit', class='btn btn-action') Sign in
+
+
+

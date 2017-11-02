@@ -13,10 +13,19 @@ html
 		link(rel='stylesheet', href="/css/bootstrap-theme.css", media="screen")
 		link(rel='stylesheet', href='/css/style.css')
 
+
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+		script(src='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
+		script(src='/js/headroom.min.js')
+		script(src='/js/jQuery.headroom.min.js')
+		script(src='/js/template.js')
+
 		<!--[if lt IE 9]>
 		<script src="/js/html5shiv.js"></script>
 		<script src="/js/respond.min.js"></script>
 		<![endif]-->
+
+
 	body
 
 		div(class='navbar navbar-inverse navbar-fixed-top headroom animated')
@@ -94,7 +103,7 @@ html
 								a(href='/sidebar-right') Sidebar
 								a(href='/contact') Contact
 								b
-									a(href='#') Sign up
+									a(href='/signup') Sign up
 
 					div(class='col-md-6 widget')
 						div(class='widget-body')

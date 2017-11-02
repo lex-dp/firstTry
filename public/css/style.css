@@ -11,6 +11,15 @@
 		#head .btn-default:active,
 		#head .btn-default.active { color:#fff; -webkit-box-shadow:inset 0px 0px 0px 3px #fff; -moz-box-shadow:inset 0px 0px 0px 3px #fff; box-shadow:inset 0px 0px 0px 3px #fff; background: transparent; }
 
+#head a {
+	margin-right: 10px;
+}
+
+#head a:last-child {
+	margin-right: 0px;
+}
+
+
 @media (max-width: 767px) {
 	#head { min-height:420px; padding-top:160px; }
 	#head .lead { font-size: 34px; }
@@ -91,3 +100,4 @@ img.pull-left { margin-right: 10px; }
 	.simplenav a:last-child {
 		padding-right: 0;
 	}
+

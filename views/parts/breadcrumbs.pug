@@ -1,0 +1,7 @@
+ol.breadcrumb
+	each breadcrumb, i in breadcrumbs
+		if((i + 1 ) == breadcrumbs.length)
+			li.active #{breadcrumb.name}
+		else
+			li
+				a(href= breadcrumb.url) #{breadcrumb.name}

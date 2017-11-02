@@ -1,0 +1,54 @@
+extends layout
+
+block content
+	header#head.secondary
+
+	div.container
+
+		include parts/breadcrumbs.pug
+
+		div.row
+			article(class='col-sm-9 maincontent')
+				header(class="page-header")
+					h1.page-title Contact us
+				p We’d love to hear from you. Interested in working together? Fill out the form below with some info about your project and I will get back to you as soon as I can. Please allow a couple days for me to respond.
+				br
+
+				form
+					div.row
+						div(class='col-sm-4')
+							input(class="form-control", type="text", placeholder="Name")
+						div(class='col-sm-4')
+							input(class="form-control", type="text", placeholder="Email")
+						div(class='col-sm-4')
+							input(class="form-control", type="text", placeholder="Phone")
+					br
+
+					div.row
+						div(class='col-sm-12')
+							textarea(placeholder="Type your message here...", class="form-control", rows="9")
+					br
+
+					div.row
+						div(class='col-sm-6')
+							label(class='checkbox')
+								input(type='checkbox')
+								| Sign up for newsletter
+
+						div(class='col-sm-6 text-right')
+							input(class='btn btn-action', type='submit', value='Send message')
+
+
+			aside(class='col-sm-3 sidebar sidebar-right')
+				div.widget
+					h4 Address
+					address 2002 Holcombe Boulevard, Houston, TX 77030, USA
+
+					h4 Phone:
+					address (713) 791-1414
+
+
+
+
+
+
