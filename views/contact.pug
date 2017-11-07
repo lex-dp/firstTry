@@ -14,25 +14,25 @@ block content
 				p We’d love to hear from you. Interested in working together? Fill out the form below with some info about your project and I will get back to you as soon as I can. Please allow a couple days for me to respond.
 				br
 
-				form
+				form#formContact(action='/contactform' method='post')
 					div.row
 						div(class='col-sm-4')
-							input(class="form-control", type="text", placeholder="Name")
+							input(class="form-control", type="text", placeholder="Name", name='name')
 						div(class='col-sm-4')
-							input(class="form-control", type="text", placeholder="Email")
+							input(class="form-control", type="text", placeholder="Email", name='email')
 						div(class='col-sm-4')
-							input(class="form-control", type="text", placeholder="Phone")
+							input(class="form-control", type="text", placeholder="Phone", name='phone')
 					br
 
 					div.row
 						div(class='col-sm-12')
-							textarea(placeholder="Type your message here...", class="form-control", rows="9")
+							textarea(placeholder="Type your message here...", class="form-control", rows="9" name='textarea')
 					br
 
 					div.row
 						div(class='col-sm-6')
 							label(class='checkbox')
-								input(type='checkbox')
+								input(type='checkbox' name='newsletter')
 								| Sign up for newsletter
 
 						div(class='col-sm-6 text-right')

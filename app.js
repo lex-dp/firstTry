@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var breadcrumbs = require('express-breadcrumbs');
+//var mails = require('./ext/sendMeils');
 
 var app = express();
 
@@ -22,13 +23,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-
 app.use(breadcrumbs.init());
 
 // Set Breadcrumbs home information
 app.use(breadcrumbs.setHome());
 
-// Mount the breadcrumbs at `/admin`
+// Mount the breadcrumbs at `/`
 app.use('/home', breadcrumbs.setHome({
 	name: 'Home',
 	url: '/'

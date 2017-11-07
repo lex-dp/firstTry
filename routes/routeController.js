@@ -13,9 +13,13 @@ var users = require('./users');
 
 module.exports = function(app) {
 
+
 	app.get('/', index);
 	app.get('/about', about);
-	app.get('/contact', contact);
+
+	app.get('/contact', contact.get);
+	app.post('/contactform', contact.post);
+
 	app.get('/sidebar-left', sidebarLeft);
 	app.get('/sidebar-right', sidebarRight);
 	app.get('/signin', signIn);

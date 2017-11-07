@@ -101,3 +101,16 @@ img.pull-left { margin-right: 10px; }
 		padding-right: 0;
 	}
 
+
+	label.error {
+		color: red;
+		animation: 1.5s validationError;
+	}
+
+@keyframes validationError {
+	from {
+		opacity: 0;
+	} to {
+		  opacity: 1;
+	  }
+}
