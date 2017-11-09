@@ -9,7 +9,7 @@ exports.get = function(req, res, next) {
 exports.post = function(req, res, next) {
 	var fs = require('fs');
 	var path = require('path');
-	var dir_info = path.parse(__dirname).dir + '/info';
+	var file = path.parse(__dirname).dir + '/info/contactFormData.json';
 
 
 	var postBody = {
@@ -24,36 +24,23 @@ exports.post = function(req, res, next) {
 	};
 
 	var postStr = JSON.stringify(postBody, null, 4);
-	var file = dir_info + '/contactFormData.json';
 
-	var read = fs.createReadStream(file);
+	fs.readFile(file, function(err, data) {
 
-	fs.open(file, 'a', function(err, data) {
-		if (err) {
-			if (err.code === 'ENOENT') {
-				console.error('myfile does not exist');
-				return;
-			}
-
-			throw err;
+		var data = data.toString();
+		if (data.indexOf('[') == 0) {
+			data = ', \n' + data.slice( data.indexOf('[') + 1 , data.lastIndexOf(']') );
 		}
 
-		var read = fs.readFile(file, function(err, data) {
-			if(err) console.log(err);
-			console.log(data.toString());
+		var sendData = '[' + postStr  + data + ']';
+
+		fs.writeFile(file, sendData, function(err) {
+			if(err) console.error(err);
 		});
 
-
-		fs.appendFile(file, postStr +'\n', function(err) {
-			if(err) console.log(err);
-		})
 	});
 
 
-
-
-
-
-
 	res.redirect('/contact');
+
 };

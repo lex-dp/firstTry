@@ -114,3 +114,14 @@ img.pull-left { margin-right: 10px; }
 		  opacity: 1;
 	  }
 }
+
+/*contact form modal*/
+
+	#contactFormModal .close {
+		margin-right: 10px;
+		margin-top: 5px;
+	}
+
+	#contactFormModal .modal-content{
+		text-align: center;
+	}

@@ -20,6 +20,13 @@ module.exports = function(app) {
 	app.get('/contact', contact.get);
 	app.post('/contactform', contact.post);
 
+	app.post('/formAjax', function(req, res, next) {
+		console.log(req.body);
+		res.json('sdfssdf');
+		res.end('sdfsdf');
+
+	});
+
 	app.get('/sidebar-left', sidebarLeft);
 	app.get('/sidebar-right', sidebarRight);
 	app.get('/signin', signIn);
