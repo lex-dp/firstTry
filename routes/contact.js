@@ -40,7 +40,6 @@ exports.post = function(req, res, next) {
 
 	});
 
-
-	res.redirect('/contact');
+	res.json('Success ajax request');
 
 };

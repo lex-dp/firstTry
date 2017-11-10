@@ -1,4 +1,5 @@
 {
 	"adminEmail": "kapitonenko5@gmail.com",
-	"emailPassword": "0935307066manchester"
+	"emailPassword": "0935307066manchester",
+	"dbPathConnect": "mongodb://localhost/test"
 }

@@ -22,7 +22,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
 app.use(breadcrumbs.init());
 
 // Set Breadcrumbs home information
