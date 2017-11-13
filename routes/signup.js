@@ -8,25 +8,38 @@ exports.get = function(req, res, next) {
 
 exports.post = function(req, res, next) {
 
-	console.log(req.body);
+
 
 	var User = require('../db/schemas/User').User;
+	var error = require('../ext/error');
 
 	var newUser = new User({
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
 		email: req.body.email,
-		hash: 'hash',
-		salt: 'salt',
-		iteration: 'iteration'
+		password: req.body.password
 	});
 
-	User.save();
 
-	console.log(newUser);
+	newUser.save(function(err) {
+		var msg = {
+			success: 'Success add to db'
+		};
+		if (err) {
+			var errMsg = err.message.split('index:')[1];
+			var errField = errMsg.substring(0, errMsg.indexOf('_1')).trim();//get name of field in mongoose options. For example: firstName or email
+			console.log(errField);
+
+			msg.error = errField;
+
+			res.send(msg);
+		}else {
+			res.send(msg);
+		}
+	});
 
 
 
-	res.send('good');
+
 
 };

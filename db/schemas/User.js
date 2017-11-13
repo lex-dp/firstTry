@@ -1,4 +1,5 @@
 var db = require('../db');
+var crypto = require('crypto');
 
 var Schema = db.Schema;
 
@@ -44,27 +45,33 @@ var addUserSchema = new Schema({
 
 });
 
-var User = db.model('Users', addUserSchema);
 
-/*var reg = new User({
-	firstName: 'Alexey',
-	lastName: 'Kap',
-	email: 'kap@gmail.com',
-	hash: '12345',
-	salt: 'gg',
-	iteration: '5'
-});*/
+addUserSchema.methods.getHash = function(password) {
+	var c = crypto.createHmac('sha1', this.salt);
+	for (var i = 0; i < this.iteration; i++) {
+		c = c.update(password);
+	}
+	return c.digest('hex');
+};
+
+addUserSchema.virtual('password')
+	.set(function(data) {//что-то вставить
+		this.salt = String(Math.random());
+		this.iteration = parseInt(Math.random() * 10 + 1);
+		this.hash = this.getHash(data);
+
+	})
+	.get(function() {
+		return this.hash;
+	});
+
+addUserSchema.methods.checkPassword = function(data) {
+	return this.getHash(data) === this.hash;
+};
+
+
+
+var User = db.model('Users', addUserSchema);
 
 exports.User = User;
 
-/*
-var Cat = db.model('Cat', { name: String });
-
-var kitty = new Cat({ name: 'GAV' });
-kitty.save(function (err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('meow');
-  }
-});*/

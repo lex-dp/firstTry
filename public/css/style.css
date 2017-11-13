@@ -111,33 +111,33 @@ img.pull-left { margin-right: 10px; }
 
 /*contact form modal*/
 
-	#contactFormModal .close {
+	.modal .close {
 		margin-right: 10px;
 		margin-top: 5px;
 	}
 
-	#contactFormModal .modal-content{
+	.modal .modal-content{
 		text-align: center;
 		padding: 5px 0;
 	}
 
-	#contactFormModal.fadeIn {
+	.modal.fadeIn {
 		animation: 1.5s fadeIn;
 	}
 
-	#contactFormModal.fadeOut {
+	.modal.fadeOut {
 		animation: 1.5s fadeOut;
 	}
 
-	#contactFormModal.modal {
+	.modal {
 		overflow-y: hidden;
 		padding-top: 4%;
 	}
-	#contactFormModal h5 {
+	.modal h5 {
 		color: mediumseagreen;
 		font-size: 15px;
 	}
-	#contactFormModal p {
+	.modal p {
 		font-style: italic;
 	}
 

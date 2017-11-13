@@ -1,4 +1,27 @@
 $(document).ready(function() {
+	//active modal window
+	function modalOpen() {
+		$('.modal').addClass('fadeIn show');
+
+		setTimeout(function() {
+			$('.modal').addClass('fadeOut');
+		}, 2000);
+
+		setTimeout(function() {
+			$('.modal').removeClass('fadeIn');
+			$('.modal').removeClass('fadeOut');
+			$('.modal').removeClass('show');
+		}, 3200);
+	}
+
+	//when user try register and insert already exist datas. Get data.error from server and search where exactly user insert repeat datas
+	function getInput(formName, inputName) {
+		var form = document.forms[formName];
+		var name = form.elements[inputName];
+
+		return name;
+	}
+
 
 	/*Contact Page*/
 	$('#formContact').validate({
@@ -132,18 +155,29 @@ $(document).ready(function() {
 		var email = formRegister.elements["email"].value;
 		var password = formRegister.elements["password"].value;
 
-		var data = JSON.stringify({
+		var data = {
 			firstName: firstName,
 			lastName: lastName,
 			email: email,
 			password: password
-		});
-
-		console.log(typeof data);
-		console.log(typeof firstName);
+		};
 
 		$.post('/formRegister', data, function(data) {
-			console.log(data);
+			if (data.error) {
+				console.log(data.error);
+				var errorTarget = getInput("formRegister", data.error);
+				errorTarget.classList.add('error');
+				console.log(errorTarget);
+
+			}else {
+				$('.modal h5').text('Your request has been confirmed.');
+				$('.modal p').text('You have successfully registered!');
+				modalOpen();
+			}
+		}).error(function(data) {
+			$('.modal h5').text('Server Error. ');
+			$('.modal p').text('Please try later.');
+			modalOpen();
 		});
 
 	});
