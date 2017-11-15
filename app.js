@@ -33,6 +33,7 @@ app.use('/home', breadcrumbs.setHome({
 	url: '/'
 }));
 
+
 require('./routes/routeController')(app);
 
 // catch 404 and forward to error handler

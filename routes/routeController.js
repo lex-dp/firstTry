@@ -16,14 +16,14 @@ module.exports = function(app) {
 	app.get('/about', about);
 
 	app.get('/contact', contact.get);
-	app.post('/formContact', contact.post);
+	app.post('/contact', contact.post);
 
 	app.get('/sidebar-left', sidebarLeft);
 	app.get('/sidebar-right', sidebarRight);
 	app.get('/signin', signIn);
 
 	app.get('/signup', signUp.get);
-	app.post('/formRegister', signUp.post);
+	app.post('/signup', signUp.post);
 
 
 };

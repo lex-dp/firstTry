@@ -1,6 +1,16 @@
 [{
     "userInfo": {
         "name": "Капитоненко",
+        "email": "dfg@g.com1",
+        "phone": "935307066",
+        "textarea": "12312312312312312312",
+        "newsletter": true,
+        "date": "1510647317956"
+    }
+}, 
+{
+    "userInfo": {
+        "name": "Капитоненко",
         "email": "kapitonenko5@gmail.com",
         "phone": "935307066",
         "textarea": "kapitonenko5@gmail.com",

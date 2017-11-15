@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type: "POST",
-			url: "/formContact",
+			url: "/contact",
 			data: JSON.stringify({
 				name: name,
 				email: email,
@@ -120,14 +120,35 @@ $(document).ready(function() {
 	$('#formRegister').validate({
 		rules: {
 			firstName: {
-				required: true
+				required: true,
+				remote: {
+					type: 'post',
+					url: 'http://localhost:3000/signup',
+					data: {
+						firstName: $('#formRegister[name="firstName"]').val()
+					}
+				}
 			},
 			lastName: {
-				required: true
+				required: true,
+				remote: {
+					type: 'post',
+					url: 'http://localhost:3000/signup',
+					data: {
+						lastName: $('#formRegister[name="lastName"]').val()
+					}
+				}
 			},
 			email: {
 				required: true,
-				email: true
+				email: true,
+				remote: {
+					type: 'post',
+					url: 'http://localhost:3000/signup',
+					data: {
+						email: $('#formRegister[name="email"]').val()
+					}
+				}
 			},
 			password: {
 				required: true
@@ -162,18 +183,20 @@ $(document).ready(function() {
 			password: password
 		};
 
-		$.post('/formRegister', data, function(data) {
-			if (data.error) {
+		$.post('/signup', data, function(data) {
+
+		/*	if (data.error) {
 				console.log(data.error);
 				var errorTarget = getInput("formRegister", data.error);
 				errorTarget.classList.add('error');
 				console.log(errorTarget);
 
-			}else {
+
+			}else {*/
 				$('.modal h5').text('Your request has been confirmed.');
 				$('.modal p').text('You have successfully registered!');
 				modalOpen();
-			}
+			/*}*/
 		}).error(function(data) {
 			$('.modal h5').text('Server Error. ');
 			$('.modal p').text('Please try later.');
