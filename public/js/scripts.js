@@ -123,7 +123,7 @@ $(document).ready(function() {
 				required: true,
 				remote: {
 					type: 'post',
-					url: 'http://localhost:3000/signup',
+					url: 'http://localhost:3000/signup_firstName',
 					data: {
 						firstName: $('#formRegister[name="firstName"]').val()
 					}
@@ -133,7 +133,7 @@ $(document).ready(function() {
 				required: true,
 				remote: {
 					type: 'post',
-					url: 'http://localhost:3000/signup',
+					url: 'http://localhost:3000/signup_lastName',
 					data: {
 						lastName: $('#formRegister[name="lastName"]').val()
 					}
@@ -144,7 +144,7 @@ $(document).ready(function() {
 				email: true,
 				remote: {
 					type: 'post',
-					url: 'http://localhost:3000/signup',
+					url: 'http://localhost:3000/signup_email',
 					data: {
 						email: $('#formRegister[name="email"]').val()
 					}
@@ -185,22 +185,23 @@ $(document).ready(function() {
 
 		$.post('/signup', data, function(data) {
 
-		/*	if (data.error) {
-				console.log(data.error);
-				var errorTarget = getInput("formRegister", data.error);
-				errorTarget.classList.add('error');
-				console.log(errorTarget);
+			/*clear value of fields*/
+			formRegister.elements["firstName"].value = '';
+			formRegister.elements["lastName"].value = '';
+			formRegister.elements["email"].value = '';
+			formRegister.elements["password"].value = '';
+			formRegister.elements["confirmPassword"].value = '';
 
+			$('.modal h5').text('Your request has been confirmed.');
+			$('.modal p').text('You have successfully registered!');
+			modalOpen();
 
-			}else {*/
-				$('.modal h5').text('Your request has been confirmed.');
-				$('.modal p').text('You have successfully registered!');
-				modalOpen();
-			/*}*/
 		}).error(function(data) {
+
 			$('.modal h5').text('Server Error. ');
 			$('.modal p').text('Please try later.');
 			modalOpen();
+
 		});
 
 	});

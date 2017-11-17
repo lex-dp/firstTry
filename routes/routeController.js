@@ -9,6 +9,12 @@ var sidebarRight = require('./sidebar-right');
 var signIn = require('./signin');
 var signUp = require('./signup');
 
+/*check unique data in db*/
+var signup_firstName = require('../db/queries/signup_firstName');
+var signup_lastName = require('../db/queries/signup_lastName');
+var signup_email = require('../db/queries/signup_email');
+
+
 module.exports = function(app) {
 
 
@@ -24,6 +30,11 @@ module.exports = function(app) {
 
 	app.get('/signup', signUp.get);
 	app.post('/signup', signUp.post);
+
+	/*check unique data in db*/
+	app.post('/signup_firstName', signup_firstName.post);
+	app.post('/signup_lastName', signup_lastName.post);
+	app.post('/signup_email', signup_email.post);
 
 
 };
